@@ -1,18 +1,18 @@
 import { Model, DataTypes } from 'sequelize'
 import type { Sequelize } from 'sequelize'
 
-import type { CountriesModel } from '../types/countries'
+import type { AuthorsModel } from '../types/authors'
 
 module.exports = (sequelize: Sequelize) => {
-  class Countries extends Model<CountriesModel> implements CountriesModel {
+  class Author extends Model<AuthorsModel> implements AuthorsModel {
     id!: number
     name!: string
 
     static associate (models: Record<string, any>): void {
-      Countries.hasMany(models.Users)
+      Author.hasMany(models.Books)
     }
   }
-  Countries.init({
+  Author.init({
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -20,13 +20,12 @@ module.exports = (sequelize: Sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'Countries',
+    modelName: 'Authors',
     timestamps: false
   })
-  return Countries
+  return Author
 }

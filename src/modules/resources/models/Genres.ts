@@ -1,32 +1,31 @@
 import { Model, DataTypes } from 'sequelize'
 import type { Sequelize } from 'sequelize'
 
-import type { CountriesModel } from '../types/countries'
+import type { GenresModel } from '../types/genres'
 
 module.exports = (sequelize: Sequelize) => {
-  class Countries extends Model<CountriesModel> implements CountriesModel {
+  class Genres extends Model<GenresModel> implements GenresModel {
     id!: number
     name!: string
 
     static associate (models: Record<string, any>): void {
-      Countries.hasMany(models.Users)
+      Genres.hasMany(models.Books)
     }
   }
-  Countries.init({
+  Genres.init({
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      type: DataTypes.STRING(50),
+      allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'Countries',
+    modelName: 'Genres',
     timestamps: false
   })
-  return Countries
+  return Genres
 }

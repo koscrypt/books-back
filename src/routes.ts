@@ -7,6 +7,7 @@ const router = Router({ strict: true })
 const modules: string[] = fs.readdirSync(path.join(__dirname, './modules'))
 
 modules.forEach((folder: string) => {
+  if (folder === '.DS_Store') return
   const routeFiles = fs.readdirSync(path.join(__dirname, 'modules', folder, 'routes'))
   routeFiles.forEach((file: string) => {
     const route = require(path.join(__dirname, 'modules', folder, 'routes', file))

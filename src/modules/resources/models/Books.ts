@@ -1,18 +1,22 @@
 import { Model, DataTypes } from 'sequelize'
 import type { Sequelize } from 'sequelize'
 
-import type { CitiesModel } from '../types/cities'
+import type { BooksModel } from '../types/books'
 
 module.exports = (sequelize: Sequelize) => {
-  class Cities extends Model<CitiesModel> implements CitiesModel {
+  class Books extends Model<BooksModel> implements BooksModel {
     id!: number
     name!: string
+    isFree!: boolean
 
     static associate (models: Record<string, any>): void {
-      Cities.hasMany(models.Users)
+      Books.belongsTo(models.Authors)
+      Books.belongsTo(models.Countries)
+      Books.belongsTo(models.Genres)
+      Books.belongsTo(models.Languages)
     }
   }
-  Cities.init({
+  Books.init({
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -21,11 +25,15 @@ module.exports = (sequelize: Sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    isFree: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'Cities',
+    modelName: 'Books',
     timestamps: false
   })
-  return Cities
+  return Books
 }
