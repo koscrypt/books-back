@@ -10,6 +10,9 @@ module.exports = (sequelize: Sequelize) => {
 
     static associate (models: Record<string, any>): void {
       Languages.hasMany(models.Books)
+      Languages.hasMany(models.Genres)
+      Languages.hasMany(models.Authors)
+      Languages.hasMany(models.Countries)
     }
   }
   Languages.init({

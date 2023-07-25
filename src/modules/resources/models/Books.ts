@@ -8,6 +8,8 @@ module.exports = (sequelize: Sequelize) => {
     id!: number
     name!: string
     isFree!: boolean
+    URL!: string
+    author?: string
 
     static associate (models: Record<string, any>): void {
       Books.belongsTo(models.Authors)
@@ -29,6 +31,14 @@ module.exports = (sequelize: Sequelize) => {
     isFree: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    },
+    URL: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    author: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,

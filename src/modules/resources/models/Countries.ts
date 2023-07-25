@@ -10,6 +10,7 @@ module.exports = (sequelize: Sequelize) => {
 
     static associate (models: Record<string, any>): void {
       Countries.hasMany(models.Users)
+      Countries.belongsTo(models.Languages)
     }
   }
   Countries.init({
@@ -21,7 +22,7 @@ module.exports = (sequelize: Sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: false
     }
   }, {
     sequelize,
