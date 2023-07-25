@@ -11,7 +11,7 @@ const swaggerDefinition: OAS3Definition = {
   },
   servers: [
     {
-      url: 'https://pelagic-cocoa-382420.rj.r.appspot.com'
+      url: 'https://leafy-loader-393200.rj.r.appspot.com'
     },
     {
       url: 'http://localhost:4000'
