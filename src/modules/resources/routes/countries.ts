@@ -19,7 +19,7 @@ router.get('/', async (_req: Request, res: Response) => {
 
 router.post('/', countriesValidator.validateCreateCountry, async (req: Request, res: Response): Promise<void> => {
   try {
-    const newCountry = await countriesController.createCountries(req)
+    const newCountry = await countriesController.getCountriesByLanguage(req)
     res.status(201).json(newCountry)
   } catch (error) {
     Log.error(error)

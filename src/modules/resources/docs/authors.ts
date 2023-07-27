@@ -1,12 +1,12 @@
 /**
  * Post track
  * @openapi
- * /resources/countries:
+ * /resources/authors:
  *    get:
  *      tags:
- *        - Resources/Countries
- *      summary: "List countries by language"
- *      description: List countries by language
+ *        - Resources/Authors
+ *      summary: "List authors by language"
+ *      description: List authors by language
  *      parameters:
  *       - in: header
  *         name: Version
@@ -30,12 +30,12 @@
 /**
  * Post track
  * @openapi
- * /resources/countries:
+ * /resources/authors:
  *    post:
  *      tags:
- *        - Resources/Countries
- *      summary: "Create countries"
- *      description: Create countries
+ *        - Resources/Authors
+ *      summary: "Create authors"
+ *      description: Create authors
  *      parameters:
  *       - in: header
  *         name: Version
@@ -46,7 +46,7 @@
  *          content:
  *            application/json:
  *              schema:
- *                $ref: "#/components/schemas/newCountry"
+ *                $ref: "#/components/schemas/newCity"
  *      responses:
  *        '201':
  *          $ref: "#/components/responses/200"

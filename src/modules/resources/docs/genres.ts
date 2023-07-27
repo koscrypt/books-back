@@ -1,12 +1,12 @@
 /**
  * Post track
  * @openapi
- * /resources/countries:
+ * /resources/genres:
  *    get:
  *      tags:
- *        - Resources/Countries
- *      summary: "List countries by language"
- *      description: List countries by language
+ *        - Resources/Genres
+ *      summary: "List genres by language"
+ *      description: List genres by language
  *      parameters:
  *       - in: header
  *         name: Version
@@ -30,12 +30,12 @@
 /**
  * Post track
  * @openapi
- * /resources/countries:
+ * /resources/genres:
  *    post:
  *      tags:
- *        - Resources/Countries
- *      summary: "Create countries"
- *      description: Create countries
+ *        - Resources/Genres
+ *      summary: "Create genres"
+ *      description: Create genres
  *      parameters:
  *       - in: header
  *         name: Version
@@ -46,7 +46,7 @@
  *          content:
  *            application/json:
  *              schema:
- *                $ref: "#/components/schemas/newCountry"
+ *                $ref: "#/components/schemas/newCity"
  *      responses:
  *        '201':
  *          $ref: "#/components/responses/200"

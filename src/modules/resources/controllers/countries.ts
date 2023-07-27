@@ -8,6 +8,16 @@ const listCountries = async (): Promise<Country[]> => {
   return countries
 }
 
+const getCountriesByLanguage = async (req: Request): Promise<Country[]> => {
+  const { languageId } = req.query
+  const countries = await models.Countries.findAll({
+    where: {
+      languageId
+    }
+  })
+  return countries
+}
+
 const createCountries = async (req: Request): Promise<Country> => {
   const newCountry = await models.Countries.create({
     name: req.body.name
@@ -16,6 +26,6 @@ const createCountries = async (req: Request): Promise<Country> => {
   return newCountry
 }
 
-const countriesController = { createCountries, listCountries }
+const countriesController = { createCountries, listCountries, getCountriesByLanguage }
 
 export default countriesController
