@@ -2,7 +2,7 @@ import type { CorsOptions } from 'cors'
 
 import Log from '../logger'
 
-const whitelist: string[] = ['http://localhost:4000', 'http://localhost:3000', 'https://leafy-loader-393200.rj.r.appspot.com', 'http://localhost:4200']
+const whitelist: string[] = ['http://localhost:4000', 'http://localhost:3000', 'https://leafy-loader-393200.rj.r.appspot.com', 'http://localhost:4200', 'https://biblio-pwa.vercel.app']
 
 const corsConfig = {
   origin: function (origin: string, response: (res: string | null, cont?: boolean) => void) {

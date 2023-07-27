@@ -6,8 +6,19 @@ import { models } from '../../../database'
 const getBooksByLanguage = async (req: Request): Promise<Book[]> => {
   const { languageId } = req.query
   const books = await models.Books.findAll({
-    where: { LanguageId: languageId }
+    where: { LanguageId: languageId },
+    include: [
+      {
+        model: models.Authors
+      },
+      {
+        model: models.Countries
+      },
+      {
+        model: models.Genres
+      }]
   })
+  console.log(books)
   return books
 }
 
