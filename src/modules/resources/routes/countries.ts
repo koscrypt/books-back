@@ -7,9 +7,9 @@ import countriesValidator from '../utils/validator/countries'
 
 const router = Router()
 
-router.get('/', async (_req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
   try {
-    const countries = await countriesController.listCountries()
+    const countries = await countriesController.getCountriesByLanguage(req)
     res.status(200).json(countries)
   } catch (error) {
     Log.error(error)
@@ -19,7 +19,7 @@ router.get('/', async (_req: Request, res: Response) => {
 
 router.post('/', countriesValidator.validateCreateCountry, async (req: Request, res: Response): Promise<void> => {
   try {
-    const newCountry = await countriesController.getCountriesByLanguage(req)
+    const newCountry = await countriesController.createCountries(req)
     res.status(201).json(newCountry)
   } catch (error) {
     Log.error(error)

@@ -10,9 +10,10 @@ const listCountries = async (): Promise<Country[]> => {
 
 const getCountriesByLanguage = async (req: Request): Promise<Country[]> => {
   const { languageId } = req.query
+  console.log(languageId)
   const countries = await models.Countries.findAll({
     where: {
-      languageId
+      LanguageId: languageId
     }
   })
   return countries

@@ -18,7 +18,6 @@ const getBooksByLanguage = async (req: Request): Promise<Book[]> => {
         model: models.Genres
       }]
   })
-  console.log(books)
   return books
 }
 
