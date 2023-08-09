@@ -4,7 +4,7 @@ import path from 'path'
 
 const { DATABASE_URL, NODE_ENV } = process.env
 
-const config = NODE_ENV !== 'dev'
+const config = NODE_ENV === 'dev'
   ? {
       dialectOptions: {
         ssl: {
