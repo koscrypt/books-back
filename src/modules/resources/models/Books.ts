@@ -10,6 +10,7 @@ module.exports = (sequelize: Sequelize) => {
     isFree!: boolean
     URL!: string
     author?: string
+    image?: string
 
     static associate (models: Record<string, any>): void {
       Books.belongsTo(models.Authors)
@@ -37,6 +38,10 @@ module.exports = (sequelize: Sequelize) => {
       allowNull: false
     },
     author: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    image: {
       type: DataTypes.STRING,
       allowNull: true
     }

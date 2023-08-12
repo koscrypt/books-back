@@ -29,6 +29,7 @@ const createBooks = async (req: Request): Promise<Book> => {
     LanguageId: req.body.languageId,
     AuthorId: req.body.authorId,
     CountryId: req.body.countryId,
+    image: req.body.image,
     GenreId: req.body.genreId
   }) as Book
 

@@ -4,6 +4,7 @@ export interface BooksModel {
   isFree: boolean
   URL: string
   author?: string
+  image?: string
 }
 
 export interface Book extends BooksModel {
