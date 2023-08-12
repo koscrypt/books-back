@@ -9,7 +9,6 @@ import authStrategies from './modules/auth/controllers/authStrategies'
 // import enforce from 'express-sslify'
 
 import { error404, generalErrorHandler } from './middlewares/errors'
-import { rateLimiter } from './middlewares/rateLimiter'
 import corsConfig from './middlewares/cors'
 import httpLogger from './middlewares/logger/httpLogger'
 
@@ -26,7 +25,6 @@ server.use(express.json({ limit: '100kb' }))
 // server.use(enforce.HTTPS())
 server.use(httpLogger)
 server.use(favicon(path.join(__dirname, '../assets/Server.png')))
-server.use(rateLimiter)
 server.use(cors(corsConfig))
 
 server.use(passport.initialize())
