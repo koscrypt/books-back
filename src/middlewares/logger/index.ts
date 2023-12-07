@@ -1,8 +1,8 @@
 import winston from 'winston'
-import { LoggingWinston } from '@google-cloud/logging-winston'
+// import { LoggingWinston } from '@google-cloud/logging-winston'
 import type TransportStream from 'winston-transport'
 
-const loggingWinston = new LoggingWinston()
+// const loggingWinston = new LoggingWinston()
 const NODE_ENV = process.env.NODE_ENV as string
 
 const levels = {
@@ -45,7 +45,7 @@ const selectTransport = (environment: string): TransportStream[] => {
 
   return [
     new winston.transports.Console(),
-    loggingWinston
+    // loggingWinston
   ]
 }
 
